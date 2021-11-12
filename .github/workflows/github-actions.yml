@@ -25,6 +25,6 @@ jobs:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
       
