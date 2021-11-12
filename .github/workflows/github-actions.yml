@@ -19,3 +19,7 @@ jobs:
           go-version: 1.17 # The Go version to download (if necessary) and use.
       - name: Build
         run: go build -v ./... 
+      - name: Validate if the service is working or not.
+        run: |
+            sleep 5
+            curl http://localhost:8000/health-checks
