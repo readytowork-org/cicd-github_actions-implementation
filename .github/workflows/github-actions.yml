@@ -19,6 +19,8 @@ jobs:
           go-version: 1.17 # The Go version to download (if necessary) and use.
       - name: Build
         run: go build -v ./... 
+      - name: Run Go Server
+        run: go run main.go
       - name: Validate if the service is working or not.
         run: |
             sleep 5
