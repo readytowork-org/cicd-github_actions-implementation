@@ -1,5 +1,5 @@
 
-name: github-actions
+name: github-actions for :${{ github.event.repository.name }}
 on: [push]
 jobs:
   general-ci-cd:
