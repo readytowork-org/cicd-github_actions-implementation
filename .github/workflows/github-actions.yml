@@ -15,19 +15,18 @@ jobs:
           DEFAULT_BRANCH: github_actions
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always()
-      - name: checkout code
-        uses: actions/checkout@v2
-        run: echo "::set-output name=SHORT_COMMIT_ID::$(git rev-parse --short HEAD)"
-      - name: Run Super Linter
-        uses: github/super-linter@v4
-          
-      - name : Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.17 # The Go version to download (if necessary) and use.
-      - name: Build
-        run: go build -v ./... 
+    - name: checkout code
+      uses: actions/checkout@v2
+      run: echo "::set-output name=SHORT_COMMIT_ID::$(git rev-parse --short HEAD)"
+    - name: Run Super Linter
+      uses: github/super-linter@v4
+        
+    - name : Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17 # The Go version to download (if necessary) and use.
+    - name: Build
+      run: go build -v ./... 
       
       
   send-slack-notifications: 
