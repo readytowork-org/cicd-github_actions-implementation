@@ -1,5 +1,5 @@
 
-name: github-actions for :${{GITHUB_REPOSITORY}}
+name: github-actions for :$GITHUB_REPOSITORY
 on: [push]
 jobs:
   general-ci-cd:
