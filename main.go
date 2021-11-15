@@ -11,11 +11,8 @@ func main() {
 	http.HandleFunc("/health-check", helloHandler)
 
 	log.Println("Listning for requests at /health-check")
-	port, found := os.LookupEnv("PORT")
-	if !found {
-		port = "8000"
-	}
-	log.Fatal(http.ListenAndServe(port, nil))
+
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
 }
 
 func helloHandler(w http.ResponseWriter, req *http.Request) {
