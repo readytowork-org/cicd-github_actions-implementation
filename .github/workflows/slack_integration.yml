@@ -1,8 +1,0 @@
-name: github-action-slack-integration
-
-on : [push]
-jobs: 
-  send-msg-to-slack:
-  runs-on: ubuntu-latest
-  steps:
-    - name:
