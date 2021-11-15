@@ -2,7 +2,7 @@
 name: github-actions
 on: [push]
 jobs:
-  general-ci/cd:
+  general-ci-cd:
     runs-on: ubuntu-latest
     steps:
     - name: Starting CICD with gihub actions...
