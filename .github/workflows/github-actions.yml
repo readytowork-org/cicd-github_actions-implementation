@@ -7,9 +7,10 @@ jobs:
     steps:
     - name: Starting CICD with gihub actions...
       uses: act10ns/slack@v1
-      with: 
-        status: ${{ job.status }}
-        if: always()
+      with:
+          status: starting
+          channel: '#github_actions'
+          message: Starting CICD Build and Push...
       env:
         VALIDATE_ALL_CODEBASE: false
         DEFAULT_BRANCH: github_actions
@@ -23,5 +24,11 @@ jobs:
         go-version: 1.17 # The Go version to download (if necessary) and use.
     - name: Build
       run: go build -v ./... 
-      
+    -name: CICD Results
+    - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+          channel: '#workflows'
+        if: always()
       
