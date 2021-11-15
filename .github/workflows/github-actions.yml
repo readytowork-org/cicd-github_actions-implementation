@@ -2,7 +2,7 @@
 name: github-actions
 on: [push]
 jobs:
-  linting-job:
+  general-ci/cd:
     runs-on: ubuntu-latest
     steps:
     - name: Starting CICD with gihub actions...
@@ -36,4 +36,5 @@ jobs:
         steps: ${{ toJson(steps) }}
         channel: '#github_actions'
       if: always()
-      
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
